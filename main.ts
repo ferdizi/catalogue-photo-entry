@@ -244,15 +244,17 @@ fillRect(252, 468, 772, 469.5, [140, 146, 154], 0.6);
 // ---- channel: dark slot the banana runs through ----
 roundRectGrad(256, 542, 768, 592, 8, [52, 55, 61], [40, 43, 48]);
 
-// ---- banana: dead straight, protruding from both ends ----
-roundRectGrad(196, 548, 830, 588, 19, [255, 224, 77], [243, 180, 28]);
-fillRect(210, 550, 816, 555, [255, 240, 130], 0.55); // top-edge highlight
-fillRect(210, 583, 816, 587, [214, 150, 16], 0.45); // deeper bottom edge
-// Small brown stem nub at the left tip.
-fillRect(192, 560, 200, 576, [120, 84, 40], 0.9);
+// ---- banana: dead straight, gently tapered (narrower at both ends) ----
+polyGrad([[201, 561], [300, 549], [513, 548], [726, 549], [825, 561], [825, 575], [726, 587], [513, 588], [300, 587], [201, 575]], [255, 224, 77], [243, 180, 28]);
+ellipseGrad(201, 568, 5, 7, [251, 210, 61], [247, 194, 44]); // rounded left tip
+ellipseGrad(825, 568, 5, 7, [251, 210, 61], [247, 194, 44]); // rounded right tip
+fillRect(320, 550, 706, 555, [255, 240, 130], 0.55); // top-edge highlight
+fillRect(320, 583, 706, 587, [214, 150, 16], 0.45); // deeper bottom edge
+// Small dark-brown stem nub at the left tip.
+polyGrad([[188, 563], [197, 561], [197, 575], [188, 573]], [128, 90, 44], [96, 64, 28]);
 // Tiny brown speckles near the right tip.
 const speckles: [number, number, number][] = [
-  [792, 560, 2.2], [806, 570, 1.8], [798, 578, 1.5], [814, 562, 1.6], [782, 572, 1.4],
+  [792, 560, 2.2], [806, 570, 1.8], [796, 574, 1.5], [814, 562, 1.6], [782, 572, 1.4],
 ];
 for (const [sx, sy, sr] of speckles) {
   ellipseGrad(sx, sy, sr, sr, [122, 88, 34], [110, 78, 30], 0.65);
